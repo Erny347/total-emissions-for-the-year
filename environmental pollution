@@ -1,0 +1,28 @@
+# Example data for monthly CO2 emissions (in metric tons) for each factory
+# Factories: [Factory1, Factory2, Factory3]
+monthly_emissions = {
+    'Factory1': [10.5, 11.2, 10.8, 9.6, 11.0, 10.3, 11.5, 12.0, 10.9, 10.0, 9.8, 11.1],
+    'Factory2': [5.5, 5.2, 5.8, 5.6, 5.0, 5.3, 5.5, 5.0, 4.9, 5.0, 5.1, 5.2],
+    'Factory3': [7.5, 7.8, 7.6, 7.9, 8.0, 7.4, 7.5, 7.7, 7.8, 7.9, 7.6, 7.5]
+}
+
+def calculate_annual_emissions(emissions):
+    # Initialize total annual emissions
+    total_annual_emissions = {}
+    
+    # Calculate the total emissions for each factory
+    for factory, monthly_values in emissions.items():
+        annual_total = sum(monthly_values)
+        total_annual_emissions[factory] = annual_total
+    
+    return total_annual_emissions
+
+def main():
+    annual_emissions = calculate_annual_emissions(monthly_emissions)
+    
+    # Output the results
+    for factory, total_emission in annual_emissions.items():
+        print(f"The total annual CO2 emissions of {factory} are {total_emission:.2f} metric tons")
+
+if __name__ == "__main__":
+    main()
